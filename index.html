@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mutyala Sai Jaswanth | Cybersecurity Engineer</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Devicon -->
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'tag-blue': '#4338ca', // Indigo-700
+                        'tag-cream': '#f5f5f4', // Stone-100
+                        'tag-dark': '#1c1917', // Stone-900
+                    },
+                    fontFamily: {
+                        'script': ['"Gloria Hallelujah"', 'cursive'],
+                        'mono': ['"JetBrains Mono"', 'monospace'],
+                    },
+                    backgroundImage: {
+                        'noise': "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.05%22/%3E%3C/svg%3E')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0f172a;
+            background-image:
+                radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+                radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
+                radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+            min-height: 100vh;
+        }
+
+        .tag-card {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .tag-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            pointer-events: none;
+            z-index: 20;
+        }
+
+        .tag-card:hover {
+            transform: translateY(-5px) rotate(1deg);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        .tech-line {
+            height: 1px;
+            background: repeating-linear-gradient(90deg, #d6d3d1, #d6d3d1 4px, transparent 4px, transparent 8px);
+        }
+
+        /* Glassmorphism for Skills/Sidebar */
+        .glass-card {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #4338ca;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3730a3;
+        }
+
+        @keyframes blink-border {
+
+            0%,
+            100% {
+                border-color: #818cf8;
+            }
+
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        .animate-cursor-blink {
+            animation: blink-border 1s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                max-width: 0;
+            }
+
+            to {
+                max-width: 100%;
+            }
+        }
+
+        .animate-text-typing {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            max-width: 0;
+            animation: typing 3.5s steps(40, end) forwards;
+            vertical-align: bottom;
+        }
+    </style>
+</head>
+
+<body class="text-stone-900 font-mono antialiased selection:bg-indigo-500 selection:text-white pb-20">
+
+    <!-- Navigation -->
+    <nav class="w-full p-6 flex justify-between items-center max-w-7xl mx-auto">
+        <div class="text-xl text-white font-script rotate-[-2deg] hover:rotate-0 transition-transform cursor-pointer">
+            SaiJaswanth.me
+        </div>
+        <div class="flex gap-4">
+            <a href="https://github.com/jaswanth-mutyala" target="_blank"
+                class="text-stone-400 hover:text-white transition-colors text-lg"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/jaswanth-mutyala/" target="_blank"
+                class="text-stone-400 hover:text-white transition-colors text-lg"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:jaswanths.mutyala@gmail.com"
+                class="text-stone-400 hover:text-white transition-colors text-lg"><i class="fas fa-envelope"></i></a>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section (Top, Centered, Medium Size) -->
+    <section class="max-w-4xl mx-auto px-4 mt-6">
+        <div class="tag-card w-full flex flex-col md:flex-row bg-[#f5f5f4] relative group min-h-[280px]">
+            <!-- Left Photo/ID Section -->
+            <div
+                class="w-full md:w-[35%] bg-indigo-700 relative p-6 flex flex-col items-center justify-center overflow-hidden">
+                <div
+                    class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-20 mix-blend-overlay">
+                </div>
+
+                <!-- ID Photo -->
+                <div
+                    class="w-32 h-32 rounded-full border-4 border-white/20 bg-stone-800 flex items-center justify-center overflow-hidden shadow-xl z-10 relative group-hover:scale-105 transition-transform duration-500">
+                    <i class="fas fa-user-secret text-5xl text-white/80"></i>
+                    <div class="absolute inset-0 bg-indigo-500/20 mix-blend-color-dodge"></div>
+                </div>
+
+                <h1 class="font-script text-white text-2xl mt-4 -rotate-6 opacity-90 relative z-10">Jaswanth</h1>
+                <div
+                    class="mt-2 text-white/50 text-[10px] font-mono border border-white/20 px-2 py-0.5 rounded tracking-widest z-10">
+                    ID: SEC-ENG-001</div>
+            </div>
+
+            <!-- Right Details Section -->
+            <div class="w-full md:w-[65%] p-6 flex flex-col justify-between bg-[#f5f5f4] relative">
+                <div class="space-y-4">
+                    <div>
+                        <span class="text-[10px] text-stone-400 uppercase font-bold tracking-wider">Name</span>
+                        <div class="text-2xl md:text-4xl font-bold text-stone-800 leading-none mt-1">Mutyala Sai
+                            Jaswanth</div>
+                        <p
+                            class="text-stone-500 font-mono text-sm mt-2 italic border-l-2 border-indigo-400 pl-3 animate-cursor-blink">
+                            <span class="animate-text-typing">"Transforming threats into remediation."</span>
+                        </p>
+                    </div>
+
+                    <div>
+                        <span class="text-[10px] text-stone-400 uppercase font-bold tracking-wider">Status</span>
+                        <div class="flex items-center gap-2 mt-1">
+                            <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                            <span class="text-sm font-mono font-bold text-stone-800">Open to Work</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-between items-end mt-6 pt-4 border-t border-dashed border-stone-300">
+                    <a href="Cybersecurity_Resume.pdf" download
+                        class="group flex items-center gap-3 bg-stone-200 hover:bg-stone-300 px-3 py-1.5 rounded-lg transition-colors">
+                        <i
+                            class="fas fa-file-download text-indigo-600 group-hover:scale-110 transition-transform text-sm"></i>
+                        <div class="flex flex-col">
+                            <span class="text-[8px] uppercase tracking-widest text-stone-500 font-bold">Resume</span>
+                            <span class="text-xs font-mono font-bold text-stone-800">DOWNLOAD CV</span>
+                        </div>
+                    </a>
+                    <div class="text-right">
+                        <i class="fas fa-fingerprint text-3xl text-stone-200"></i>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Middle Grid (Main Left, Sidebar Right) -->
+    <div class="max-w-7xl mx-auto px-4 mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+
+        <!-- Main Content (Left on Desktop, Top on Mobile) -->
+        <main class="lg:col-span-2 order-1 flex flex-col gap-6">
+
+            <!-- Projects Section -->
+            <section class="flex flex-col gap-6">
+                <h3 class="text-white/50 font-mono text-xs uppercase tracking-[0.2em] pl-2 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-indigo-500 rounded-full"></span> Projects
+                </h3>
+
+                <!-- Project Card 1: Cloud -->
+                <div class="tag-card w-full flex flex-col md:flex-row min-h-[280px] bg-[#f5f5f4] group cursor-pointer">
+                    <div
+                        class="w-full md:w-[35%] bg-indigo-700 p-6 flex flex-col justify-center items-center relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')] bg-cover bg-center opacity-20 mix-blend-overlay transition-transform duration-700 group-hover:scale-110">
+                        </div>
+                        <h4 class="font-script text-xl text-white relative z-10 -rotate-6 text-center drop-shadow-md">
+                            Cloud
+                            Shield</h4>
+                        <div
+                            class="mt-4 text-white/80 text-[10px] font-mono border border-white/30 px-3 py-1 rounded-full z-10 backdrop-blur-sm">
+                            AWS + Terraform</div>
+                    </div>
+                    <div class="w-full md:w-[65%] p-6 bg-[#f5f5f4] flex flex-col justify-between relative">
+                        <div>
+                            <div class="flex justify-between items-start">
+                                <h5 class="text-lg font-bold text-stone-800 uppercase tracking-tight">Automated Cloud
+                                    Threat
+                                    Remediation</h5>
+                                <i class="devicon-amazonwebservices-plain-wordmark text-stone-300 text-3xl"></i>
+                            </div>
+                            <p class="text-stone-500 text-sm mt-3 font-mono leading-relaxed">
+                                Self-healing infrastructure that detects and neutralizes threats in real-time using
+                                serverless architecture.
+                            </p>
+                        </div>
+
+                        <div class="tech-line w-full my-3 opacity-50"></div>
+
+                        <div class="flex flex-col gap-3">
+                            <div class="flex items-center gap-2">
+                                <span
+                                    class="text-[10px] font-bold text-stone-400 uppercase tracking-wider">Tools:</span>
+                                <div class="flex gap-2">
+                                    <i class="devicon-amazonwebservices-plain-wordmark text-lg text-stone-600"
+                                        title="AWS"></i>
+                                    <i class="devicon-terraform-plain text-lg text-stone-600" title="Terraform"></i>
+                                </div>
+                            </div>
+                            <div class="flex justify-end items-center">
+                                <a href="https://github.com/jaswanth-mutyala/cloud-threat-remediation" target="_blank"
+                                    class="flex items-center gap-2 text-xs font-bold text-stone-700 hover:text-indigo-600 transition-colors border border-stone-300 px-3 py-1 rounded-full hover:border-indigo-600">
+                                    <i class="fab fa-github"></i> View Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2: SIEM -->
+                <div class="tag-card w-full flex flex-col md:flex-row min-h-[280px] bg-[#f5f5f4] group cursor-pointer">
+                    <div
+                        class="w-full md:w-[35%] bg-indigo-700 p-6 flex flex-col justify-center items-center relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1558494949-ef526b0042a0?q=80&w=2072&auto=format&fit=crop')] bg-cover bg-center opacity-20 mix-blend-overlay transition-transform duration-700 group-hover:scale-110">
+                        </div>
+                        <h4 class="font-script text-xl text-white relative z-10 -rotate-6 text-center drop-shadow-md">
+                            Splunk SPL</h4>
+                        <div
+                            class="mt-4 text-white/80 text-[10px] font-mono border border-white/30 px-3 py-1 rounded-full z-10 backdrop-blur-sm">
+                            Threat Detection</div>
+                    </div>
+                    <div class="w-full md:w-[65%] p-6 bg-[#f5f5f4] flex flex-col justify-between relative">
+                        <div>
+                            <div class="flex justify-between items-start">
+                                <h5 class="text-lg font-bold text-stone-800 uppercase tracking-tight">SIEM Threat
+                                    Detection
+                                </h5>
+                                <i class="devicon-splunk-plain-wordmark text-stone-300 text-5xl"></i>
+                            </div>
+                            <p class="text-stone-500 text-sm mt-3 font-mono leading-relaxed">
+                                Advanced query construction for identifying anomalous patterns and potential security
+                                breaches in log data.
+                            </p>
+                        </div>
+
+                        <div class="tech-line w-full my-3 opacity-50"></div>
+
+                        <div class="flex flex-col gap-3">
+                            <div class="flex items-center gap-2">
+                                <span
+                                    class="text-[10px] font-bold text-stone-400 uppercase tracking-wider">Tools:</span>
+                                <div class="flex gap-2">
+                                    <i class="devicon-splunk-plain-wordmark text-4xl text-stone-600" title="Splunk"></i>
+                                </div>
+                            </div>
+                            <div class="flex justify-end items-center">
+                                <a href="https://github.com" target="_blank"
+                                    class="flex items-center gap-2 text-xs font-bold text-stone-700 hover:text-indigo-600 transition-colors border border-stone-300 px-3 py-1 rounded-full hover:border-indigo-600">
+                                    <i class="fab fa-github"></i> View Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Extracurriculars -->
+            <section>
+                <h3
+                    class="text-white/50 font-mono text-xs mb-2 uppercase tracking-[0.2em] pl-2 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-indigo-500 rounded-full"></span> Extracurriculars
+                </h3>
+                <div class="tag-card w-full flex flex-col md:flex-row min-h-[280px] bg-[#f5f5f4] group cursor-pointer">
+                    <div
+                        class="w-full md:w-[35%] bg-indigo-700 p-6 flex flex-col justify-center items-center relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=2071&auto=format&fit=crop')] bg-cover bg-center opacity-20 mix-blend-overlay transition-transform duration-700 group-hover:scale-110">
+                        </div>
+                        <h4 class="font-script text-xl text-white relative z-10 -rotate-6 text-center drop-shadow-md">
+                            Mansi Art</h4>
+                        <div
+                            class="mt-4 text-white/80 text-[10px] font-mono border border-white/30 px-3 py-1 rounded-full z-10 backdrop-blur-sm">
+                            Club Lead</div>
+                    </div>
+                    <div class="w-full md:w-[65%] p-6 bg-[#f5f5f4] flex flex-col justify-between relative">
+                        <div>
+                            <div class="flex justify-between items-start">
+                                <h5 class="text-lg font-bold text-stone-800 uppercase tracking-tight">Mansi Art Club
+                                </h5>
+                                <i class="fas fa-palette text-stone-300 text-3xl"></i>
+                            </div>
+                            <p class="text-stone-500 text-sm mt-3 font-mono leading-relaxed">
+                                Led a community of artists, organizing workshops and exhibitions to foster creativity on
+                                campus.
+                            </p>
+                        </div>
+
+                        <div class="tech-line w-full my-3 opacity-50"></div>
+
+                        <div class="flex flex-col gap-3">
+                            <div class="flex items-center gap-2">
+                                <span class="text-[10px] font-bold text-stone-400 uppercase tracking-wider">Role:</span>
+                                <div class="flex gap-2">
+                                    <span class="text-xs font-bold text-stone-600 bg-stone-200 px-2 py-1 rounded">Vice
+                                        President</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center mt-1">
+                                <span class="text-[10px] font-bold text-indigo-500 uppercase tracking-wider">100+
+                                    Members</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTF Participations -->
+            <section>
+                <h3
+                    class="text-white/50 font-mono text-xs mb-2 uppercase tracking-[0.2em] pl-2 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-indigo-500 rounded-full"></span> CTF Participations
+                </h3>
+                <div class="grid grid-cols-1 gap-6">
+                    <!-- CTF Terminal -->
+                    <div
+                        class="tag-card w-full bg-[#1e1e1e] border border-stone-700 p-5 font-mono text-xs shadow-2xl min-h-[280px]">
+                        <div class="flex gap-2 mb-3 border-b border-stone-700 pb-2">
+                            <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+                            <span class="ml-2 text-stone-500 text-[10px]">ncsrc_ctf.sh</span>
+                        </div>
+                        <div class="font-mono text-xs overflow-hidden flex flex-col gap-2">
+                            <div class="flex gap-2">
+                                <span class="text-green-500">root@jaswanth:~/ctf$</span>
+                                <span class="text-white">cat ncsrc_participation.txt</span>
+                            </div>
+                            <div class="text-stone-300 pl-0 mt-1 leading-relaxed">
+                                <div class="mb-2 text-white font-bold tracking-wide">Participant - Capture The Flag
+                                    (CTF)</div>
+                                <ul class="list-none space-y-2">
+                                    <li class="flex gap-2">
+                                        <span class="text-stone-600 shrink-0">•</span>
+                                        <span>Analyzed and solved challenges related to <span
+                                                class="text-yellow-400">cryptography</span>, <span
+                                                class="text-yellow-400">Web Exploitation</span>, Steganography and
+                                            vulnerability exploitation.</span>
+                                    </li>
+                                    <li class="flex gap-2">
+                                        <span class="text-stone-600 shrink-0">•</span>
+                                        <span>Used tools like <span class="text-blue-400">Wireshark</span>, <span
+                                                class="text-blue-400">nmap</span>, and online tools like <span
+                                                class="text-blue-400">cyberchef</span> to investigate scenarios and
+                                            capture flags.</span>
+                                    </li>
+                                    <li class="flex gap-2">
+                                        <span class="text-stone-600 shrink-0">•</span>
+                                        <span>Demonstrated effective problem-solving skills under time
+                                            constraints.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="flex gap-2 mt-2">
+                                <span class="text-green-500">root@jaswanth:~/ctf$</span>
+                                <span class="w-2 h-4 bg-stone-500 animate-pulse"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Sidebar (Right on Desktop, Bottom on Mobile) -->
+        <aside class="lg:col-span-1 order-2 flex flex-col gap-6">
+
+            <!-- 1. TryHackMe Badge (Top of Sidebar) -->
+            <section>
+                <h3
+                    class="text-white/50 font-mono text-xs mb-2 uppercase tracking-[0.2em] pl-2 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-indigo-500 rounded-full"></span> Skills
+                </h3>
+                <div class="tag-card glass-card w-full flex flex-col relative group overflow-hidden min-h-[350px]">
+                    <div
+                        class="h-14 bg-indigo-700/80 w-full relative overflow-hidden flex items-center px-6 backdrop-blur-sm">
+                        <div
+                            class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20">
+                        </div>
+                        <h4 class="text-white font-bold text-base relative z-10">Technical Arsenal</h4>
+                    </div>
+                    <div class="p-6 relative flex-1 space-y-6">
+                        <!-- Languages -->
+                        <div>
+                            <h4
+                                class="text-indigo-400 font-bold text-xs uppercase tracking-wider mb-2 border-b border-white/10 pb-1 flex items-center gap-2">
+                                <i class="fas fa-code text-indigo-400"></i> Languages
+                            </h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-2.5 py-1 bg-white/10 rounded-lg text-xs font-bold text-white border border-white/10 shadow-sm hover:bg-indigo-600 hover:border-indigo-500 transition-colors cursor-default flex items-center gap-2"><i
+                                        class="devicon-python-plain text-sm text-yellow-300"></i> Python</span>
+                                <span
+                                    class="px-2.5 py-1 bg-white/10 rounded-lg text-xs font-bold text-white border border-white/10 shadow-sm hover:bg-indigo-600 hover:border-indigo-500 transition-colors cursor-default flex items-center gap-2"><i
+                                        class="devicon-mysql-plain text-sm text-blue-300"></i> SQL</span>
+                                <span
+                                    class="px-2.5 py-1 bg-white/10 rounded-lg text-xs font-bold text-white border border-white/10 shadow-sm hover:bg-indigo-600 hover:border-indigo-500 transition-colors cursor-default flex items-center gap-2"><i
+                                        class="devicon-bash-plain text-sm text-stone-300"></i> Bash</span>
+                                <span
+                                    class="px-2.5 py-1 bg-white/10 rounded-lg text-xs font-bold text-white border border-white/10 shadow-sm hover:bg-indigo-600 hover:border-indigo-500 transition-colors cursor-default flex items-center gap-2"><i
+                                        class="devicon-cplusplus-plain text-sm text-blue-600"></i> C++</span>
+                                <span
+                                    class="px-2.5 py-1 bg-white/10 rounded-lg text-xs font-bold text-white border border-white/10 shadow-sm hover:bg-indigo-600 hover:border-indigo-500 transition-colors cursor-default flex items-center gap-2"><i
+                                        class="devicon-c-plain text-sm text-blue-600"></i> C</span>
+                            </div>
+                        </div>
+
+                        <!-- Security & SIEM -->
+                        <div>
+                            <h4
+                                class="text-indigo-400 font-bold text-xs uppercase tracking-wider mb-2 border-b border-white/10 pb-1 flex items-center gap-2">
+                                <i class="fas fa-shield-alt text-yellow-400"></i> Security & SIEM
+                            </h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-2.5 py-1 bg-white/10 rounded-lg text-xs font-bold text-white border border-white/10 shadow-sm hover:bg-indigo-600 hover:border-indigo-500 transition-colors cursor-default flex items-center gap-2"><i
+                                        class="devicon-splunk-plain-wordmark text-sm text-pink-400"></i> Splunk
+                                    (SPL)</span>
+                                <span
+                                    class="px-2.5 py-1 bg-white/10 rounded-lg text-xs font-bold text-white border border-white/10 shadow-sm hover:bg-indigo-600 hover:border-indigo-500 transition-colors cursor-default flex items-center gap-2"><i
+                                        class="fas fa-search text-sm text-blue-400"></i> Wazuh</span>
+                                <span
+                                    class="px-2.5 py-1 bg-white/10 rounded-lg text-xs font-bold text-white border border-white/10 shadow-sm hover:bg-indigo-600 hover:border-indigo-500 transition-colors cursor-default flex items-center gap-2"><i
+                                        class="fas fa-radar text-sm text-teal-400"></i> IBM QRadar</span>
+                                <span
+                                    class="px-2.5 py-1 bg-white/10 rounded-lg text-xs font-bold text-white border border-white/10 shadow-sm hover:bg-indigo-600 hover:border-indigo-500 transition-colors cursor-default flex items-center gap-2"><i
+                                        class="fas fa-network-wired text-sm text-orange-400"></i> Wireshark</span>
+                                <span
+                                    class="px-2.5 py-1 bg-white/10 rounded-lg text-xs font-bold text-white border border-white/10 shadow-sm hover:bg-indigo-600 hover:border-indigo-500 transition-colors cursor-default flex items-center gap-2"><i
+                                        class="fas fa-globe text-sm text-cyan-400"></i> Nmap</span>
+                                <span
+                                    class="px-2.5 py-1 bg-white/10 rounded-lg text-xs font-bold text-white border border-white/10 shadow-sm hover:bg-indigo-600 hover:border-indigo-500 transition-colors cursor-default flex items-center gap-2"><i
+                                        class="fas fa-bug text-sm text-red-400"></i> Burp Suite</span>
+
+                                <span
+                                    class="px-2.5 py-1 bg-white/10 rounded-lg text-xs font-bold text-white border border-white/10 shadow-sm hover:bg-indigo-600 hover:border-indigo-500 transition-colors cursor-default flex items-center gap-2"><i
+                                        class="fas fa-file-export text-sm text-green-400"></i> TCPDump</span>
+                            </div>
+                        </div>
+
+                        <!-- Cloud & DevOps -->
+                        <div>
+                            <h4
+                                class="text-indigo-400 font-bold text-xs uppercase tracking-wider mb-2 border-b border-white/10 pb-1 flex items-center gap-2">
+                                <i class="fas fa-cloud text-blue-400"></i> Cloud & DevOps
+                            </h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-2.5 py-1 bg-white/10 rounded-lg text-xs font-bold text-white border border-white/10 shadow-sm hover:bg-indigo-600 hover:border-indigo-500 transition-colors cursor-default flex items-center gap-2"><i
+                                        class="devicon-amazonwebservices-plain-wordmark text-sm text-yellow-500"></i>
+                                    AWS</span>
+                                <span
+                                    class="px-2.5 py-1 bg-white/10 rounded-lg text-xs font-bold text-white border border-white/10 shadow-sm hover:bg-indigo-600 hover:border-indigo-500 transition-colors cursor-default flex items-center gap-2"><i
+                                        class="devicon-terraform-plain text-sm text-purple-400"></i> Terraform</span>
+                                <span
+                                    class="px-2.5 py-1 bg-white/10 rounded-lg text-xs font-bold text-white border border-white/10 shadow-sm hover:bg-indigo-600 hover:border-indigo-500 transition-colors cursor-default flex items-center gap-2"><i
+                                        class="devicon-docker-plain text-sm text-blue-500"></i> Docker</span>
+                                <span
+                                    class="px-2.5 py-1 bg-white/10 rounded-lg text-xs font-bold text-white border border-white/10 shadow-sm hover:bg-indigo-600 hover:border-indigo-500 transition-colors cursor-default flex items-center gap-2"><i
+                                        class="devicon-git-plain text-sm text-red-500"></i> Git/GitHub</span>
+                                <span
+                                    class="px-2.5 py-1 bg-white/10 rounded-lg text-xs font-bold text-white border border-white/10 shadow-sm hover:bg-indigo-600 hover:border-indigo-500 transition-colors cursor-default flex items-center gap-2"><i
+                                        class="fas fa-sync-alt text-sm text-green-400"></i> CI/CD</span>
+                            </div>
+                        </div>
+
+                        <!-- Systems & Networking -->
+                        <div>
+                            <h4
+                                class="text-indigo-400 font-bold text-xs uppercase tracking-wider mb-2 border-b border-white/10 pb-1 flex items-center gap-2">
+                                <i class="fas fa-server text-indigo-400"></i> Systems & Networking
+                            </h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-2.5 py-1 bg-white/10 rounded-lg text-xs font-bold text-white border border-white/10 shadow-sm hover:bg-indigo-600 hover:border-indigo-500 transition-colors cursor-default flex items-center gap-2"><i
+                                        class="devicon-linux-plain text-sm text-white"></i> Linux</span>
+                                <span
+                                    class="px-2.5 py-1 bg-white/10 rounded-lg text-xs font-bold text-white border border-white/10 shadow-sm hover:bg-indigo-600 hover:border-indigo-500 transition-colors cursor-default flex items-center gap-2"><i
+                                        class="devicon-windows8-original text-sm text-blue-400"></i> Windows
+                                    Internals</span>
+                                <span
+                                    class="px-2.5 py-1 bg-white/10 rounded-lg text-xs font-bold text-white border border-white/10 shadow-sm hover:bg-indigo-600 hover:border-indigo-500 transition-colors cursor-default flex items-center gap-2"><i
+                                        class="fas fa-exchange-alt text-sm text-green-400"></i> TCP/IP</span>
+                                <span
+                                    class="px-2.5 py-1 bg-white/10 rounded-lg text-xs font-bold text-white border border-white/10 shadow-sm hover:bg-indigo-600 hover:border-indigo-500 transition-colors cursor-default flex items-center gap-2"><i
+                                        class="fas fa-sitemap text-sm text-yellow-400"></i> DNS</span>
+                                <span
+                                    class="px-2.5 py-1 bg-white/10 rounded-lg text-xs font-bold text-white border border-white/10 shadow-sm hover:bg-indigo-600 hover:border-indigo-500 transition-colors cursor-default flex items-center gap-2"><i
+                                        class="fas fa-box-open text-sm text-orange-400"></i> VirtualBox/VMware</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3
+                    class="text-white/50 font-mono text-xs mb-2 uppercase tracking-[0.2em] pl-2 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-indigo-500 rounded-full"></span> Education
+                </h3>
+                <div class="tag-card glass-card w-full flex flex-col relative group overflow-hidden min-h-[160px]">
+                    <div
+                        class="h-14 bg-indigo-700/80 w-full relative overflow-hidden flex items-center px-6 backdrop-blur-sm">
+                        <div
+                            class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20">
+                        </div>
+                        <h4 class="text-white font-bold text-base relative z-10">VIT-AP University
+                        </h4>
+                    </div>
+                    <div class="p-6 relative flex-1 flex flex-col justify-center">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <div class="text-white font-bold text-sm uppercase tracking-tight">
+                                    B.Tech Computer
+                                    Science and Business Systems
+                                </div>
+                                <div class="text-stone-400 text-xs font-mono mt-1">2022 - 2026</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-[10px] text-stone-500 uppercase font-bold tracking-wider">
+                                    CGPA</div>
+                                <div class="text-indigo-400 font-mono font-bold text-xl">8.69</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Certifications (Glassmorphic) -->
+            <section>
+                <h3
+                    class="text-white/50 font-mono text-xs mb-2 uppercase tracking-[0.2em] pl-2 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-indigo-500 rounded-full"></span> Certifications
+                </h3>
+                <div class="tag-card glass-card w-full flex flex-col relative group overflow-hidden min-h-[160px]">
+                    <div
+                        class="h-14 bg-indigo-700/80 w-full relative overflow-hidden flex items-center px-6 backdrop-blur-sm">
+                        <div
+                            class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20">
+                        </div>
+                        <h4 class="text-white font-bold text-base relative z-10">Credentials</h4>
+                    </div>
+                    <div class="p-6 relative flex-1 flex flex-col gap-6">
+                        <!-- Google Cybersecurity -->
+                        <a href="https://www.credly.com/badges/f2c128e3-ea1a-4b23-b6cb-08753b77f2fd/public_url"
+                            target="_blank" rel="noopener noreferrer"
+                            class="flex items-center gap-4 group/item hover:bg-white/5 p-2 -mx-2 rounded-xl transition-all">
+                            <div
+                                class="w-[100px] h-[100px] shrink-0 overflow-hidden rounded-lg bg-black/20 flex items-center justify-center p-2 group-hover/item:scale-105 transition-transform duration-300">
+                                <img src="google-cybersecurity-professional-certificate-v2.png"
+                                    alt="Google Cybersecurity Professional Certificate"
+                                    class="w-full h-full object-contain">
+                            </div>
+                            <div>
+                                <h4
+                                    class="text-white font-bold text-sm leading-tight group-hover/item:text-indigo-300 transition-colors">
+                                    Google Cybersecurity</h4>
+                                <div class="text-indigo-400 text-xs font-mono font-bold uppercase mt-1">Professional
+                                    Certificate
+                                </div>
+                                <div
+                                    class="text-stone-500 text-[10px] font-mono mt-1 flex items-center gap-1 opacity-0 group-hover/item:opacity-100 transition-opacity">
+                                    <span>Verify</span> <i class="fas fa-external-link-alt text-[8px]"></i>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- ISO 27001 Lead Auditor -->
+                        <a href="https://www.credly.com/badges/68898a7d-ede4-410d-abb2-dc8b325d163e/public_url"
+                            target="_blank" rel="noopener noreferrer"
+                            class="flex items-center gap-4 group/item hover:bg-white/5 p-2 -mx-2 rounded-xl transition-all">
+                            <div
+                                class="w-[100px] h-[100px] shrink-0 overflow-hidden rounded-lg bg-black/20 flex items-center justify-center p-2 group-hover/item:scale-105 transition-transform duration-300">
+                                <img src="iso-iec-27001-2022-lead-auditor.png" alt="ISO/IEC 27001:2022 Lead Auditor"
+                                    class="w-full h-full object-contain">
+                            </div>
+                            <div>
+                                <h4
+                                    class="text-white font-bold text-sm leading-tight group-hover/item:text-indigo-300 transition-colors">
+                                    ISO/IEC 27001:2022</h4>
+                                <div class="text-indigo-400 text-xs font-mono font-bold uppercase mt-1">Lead Auditor
+                                </div>
+                                <div
+                                    class="text-stone-500 text-[10px] font-mono mt-1 flex items-center gap-1 opacity-0 group-hover/item:opacity-100 transition-opacity">
+                                    <span>Verify</span> <i class="fas fa-external-link-alt text-[8px]"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+        </aside>
+
+    </div>
+
+    <!-- Contact Section (Bottom, Centered, Medium Size) -->
+    <section class="max-w-4xl mx-auto px-4 mt-16 mb-20">
+        <div class="tag-card w-full bg-[#f5f5f4] flex flex-col md:flex-row overflow-hidden min-h-[280px]">
+            <!-- Left Blue Header (Vertical on Desktop) -->
+            <div
+                class="w-full md:w-14 bg-indigo-700 flex md:flex-col items-center justify-center p-4 md:py-8 relative overflow-hidden">
+                <div
+                    class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20">
+                </div>
+                <div class="text-white/50 font-mono text-[10px] tracking-widest whitespace-nowrap md:-rotate-90">
+                    CONTACT
+                    // V.09</div>
+            </div>
+
+            <!-- Form Body -->
+            <div class="flex-1 p-6 relative">
+                <div class="absolute top-0 right-0 p-4 opacity-10">
+                    <i class="fas fa-satellite-dish text-5xl"></i>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold text-stone-800 uppercase tracking-tight mb-1">Contact
+                        Me</h3>
+                    <div class="tech-line w-16"></div>
+                    <p class="text-stone-500 text-xs font-mono mt-2">Feel free to reach out for
+                        collaborations or
+                        opportunities.</p>
+                </div>
+
+                <form action="https://formspree.io/f/mqarlbon" method="POST" class="space-y-5">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div class="relative group">
+                            <label
+                                class="block text-[10px] uppercase tracking-widest text-stone-400 mb-1 group-focus-within:text-indigo-600 transition-colors">Name</label>
+                            <input type="text" name="name" required
+                                class="w-full bg-stone-100 border-b-2 border-stone-200 p-2 font-mono text-xs focus:outline-none focus:border-indigo-600 transition-colors bg-transparent"
+                                placeholder="Your Name">
+                        </div>
+                        <div class="relative group">
+                            <label
+                                class="block text-[10px] uppercase tracking-widest text-stone-400 mb-1 group-focus-within:text-indigo-600 transition-colors">Email</label>
+                            <input type="email" name="email" required
+                                class="w-full bg-stone-100 border-b-2 border-stone-200 p-2 font-mono text-xs focus:outline-none focus:border-indigo-600 transition-colors bg-transparent"
+                                placeholder="Your Email">
+                        </div>
+                    </div>
+
+                    <div class="relative group">
+                        <label
+                            class="block text-[10px] uppercase tracking-widest text-stone-400 mb-1 group-focus-within:text-indigo-600 transition-colors">Message</label>
+                        <textarea name="message" rows="3" required
+                            class="w-full bg-stone-100 border-b-2 border-stone-200 p-2 font-mono text-xs focus:outline-none focus:border-indigo-600 transition-colors bg-transparent resize-none"
+                            placeholder="Your Message..."></textarea>
+                    </div>
+
+                    <div class="flex justify-between items-center pt-2">
+                        <div class="flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
+                            <span class="text-[10px] font-mono text-stone-400">Online</span>
+                        </div>
+                        <button type="submit"
+                            class="bg-indigo-700 hover:bg-indigo-600 text-white font-mono text-[10px] font-bold py-2.5 px-6 rounded shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 active:translate-y-0 uppercase tracking-widest border-b-4 border-indigo-900 active:border-b-0">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="max-w-7xl mx-auto mt-16 p-6 text-center">
+        <p class="text-stone-500 font-mono text-xs tracking-widest">
+            PORTFOLIO // <span class="text-indigo-500">SAIJASWANTH.ME</span> // 2025
+        </p>
+        <div class="text-stone-700 mt-2 opacity-30 text-[10px]">ALL RIGHTS RESERVED</div>
+    </footer>
+
+</body>
+
+</html>
